@@ -1,2 +1,3 @@
-# idealy
-Idealy: Organize &amp; Grow Your Ideas
+# Ideally: Organize & Grow Your Ideas
+
+
