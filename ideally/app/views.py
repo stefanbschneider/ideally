@@ -26,13 +26,15 @@ class DetailView(generic.DetailView):
 class IdeaCreate(CreateView):
     template_name = 'app/idea_form.html'
     model = Idea
+    fields = ['title', 'description']
 
 
 class IdeaUpdate(UpdateView):
     model = Idea
+    fields = ['title', 'description']
 
 
 class IdeaDelete(DeleteView):
-    template_name = 'idea_delete.html'
+    template_name = 'app/idea_delete.html'
     model = Idea
     success_url = reverse_lazy('app:index')

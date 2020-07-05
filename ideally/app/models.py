@@ -11,3 +11,10 @@ class Idea(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        """
+        Absolute URL of an idea detail. Used for generic create/update views & model forms
+        https://docs.djangoproject.com/en/3.0/topics/class-based-views/generic-editing/#model-forms
+        """
+        return reverse('app:detail', kwargs={'pk': self.pk})
