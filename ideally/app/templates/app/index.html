@@ -13,7 +13,7 @@
         <tbody>
             {% for idea in idea_list %}
             <tr>
-                <td>{{ idea.title }}</td>
+                <td><a href="{% url 'app:detail' idea.id %}">{{ idea.title }}</a></td>
                 <td>{{ idea.creation_date }}</td>
                 <td>{{ idea.update_date }}</td>
             </tr>

@@ -16,3 +16,23 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         """Return all ideas"""
         return Idea.objects.all().order_by('update_date')
+
+
+class DetailView(generic.DetailView):
+    model = Idea
+    template_name = 'app/idea_detail.html'
+
+
+class IdeaCreate(CreateView):
+    template_name = 'app/idea_form.html'
+    model = Idea
+
+
+class IdeaUpdate(UpdateView):
+    model = Idea
+
+
+class IdeaDelete(DeleteView):
+    template_name = 'idea_delete.html'
+    model = Idea
+    success_url = reverse_lazy('app:index')

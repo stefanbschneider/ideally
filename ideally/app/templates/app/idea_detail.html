@@ -1,0 +1,11 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+    <h1>{{ idea.title }}</h1>
+    <p>Created on: {{ idea.creation_date }}</p>
+    <p>Updated on: {{ idea.update_date }}</p>
+    <p>Description: {{ idea.description }}</p>
+
+    <a class="btn btn-secondary" href="{% url 'app:edit' idea.id %}">Edit <i class="fas fa-edit"></i></a>
+    <a class="btn btn-danger" href="{% url 'app:delete' idea.id %}">Delete <i class="fas fa-trash"></i></a>
+{% endblock %}
