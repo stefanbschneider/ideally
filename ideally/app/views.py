@@ -6,7 +6,7 @@ from django.views.generic.edit import FormView, CreateView, DeleteView, UpdateVi
 from django.utils import timezone
 from django.template import loader
 
-from .models import Idea
+from .models import Idea, Tag
 
 
 class IndexView(generic.ListView):
@@ -18,7 +18,8 @@ class IndexView(generic.ListView):
         return Idea.objects.all().order_by('update_date')
 
 
-class DetailView(generic.DetailView):
+# Idea views
+class IdeaDetail(generic.DetailView):
     model = Idea
     template_name = 'app/idea_detail.html'
 
@@ -38,3 +39,8 @@ class IdeaDelete(DeleteView):
     template_name = 'app/idea_delete.html'
     model = Idea
     success_url = reverse_lazy('app:index')
+
+# Tag views
+class TagDetail(generic.DetailView):
+    model = Tag
+    template_name = 'app/tag_detail.html'
