@@ -1,3 +1,13 @@
 from django.db import models
+from django.urls import reverse
 
-# Create your models here.
+
+class Idea(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.CharField(default='', max_length=5000)
+    creation_date = models.DateTimeField('date created', auto_now=True)
+    update_date = models.DateTimeField('date updated', auto_now=True)
+    # TODO: tags, photo, duration
+
+    def __str__(self):
+        return self.title
