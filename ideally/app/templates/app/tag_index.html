@@ -1,0 +1,27 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+    {% if tag_list %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Color</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tag in tag_list %}
+            <tr>
+                <td><a href="{% url 'app:tag-detail' tag.id %}">{{ tag.name }}</a></td>
+                <td>{{ tag.description }}</td>
+                <td><span class="badge badge-primary" style="background-color: {{ tag.color }}">{{ tag.color }}</span></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+        <p>No tags added yet.</p>
+    {% endif %}
+{% endblock %}

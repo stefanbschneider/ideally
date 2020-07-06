@@ -10,7 +10,7 @@ from .models import Idea, Tag
 
 
 class IndexView(generic.ListView):
-    template_name = 'app/index.html'
+    template_name = 'app/idea_index.html'
     context_object_name = 'idea_list'
 
     def get_queryset(self):
@@ -40,7 +40,15 @@ class IdeaDelete(DeleteView):
     model = Idea
     success_url = reverse_lazy('app:index')
 
+
 # Tag views
+class TagIndex(generic.ListView):
+    template_name = 'app/tag_index.html'
+    context_object_name = 'tag_list'
+
+    def get_queryset(self):
+        return Tag.objects.all().order_by('name')
+
 class TagDetail(generic.DetailView):
     model = Tag
     template_name = 'app/tag_detail.html'
