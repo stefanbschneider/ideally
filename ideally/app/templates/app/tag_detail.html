@@ -3,6 +3,22 @@
 {% block content %}
     <h1>{{ tag.name }}</h1>
     <p>Description: {{ tag.description }}</p>
-    <p>Color: <span class="badge badge-secondary">{{ tag.color }}</span></p>
-<!--TODO: show badge in corresponding color-->
+    <p>Color: <span class="badge badge-primary" style="background-color: {{ tag.color }}">{{ tag.color }}</span></p>
+
+    <div class="demo">
+      <h1>Bootstrap Colorpicker Demo (with Bootstrap)</h1>
+      <input id="demo-input" type="text" value="rgb(255, 128, 0)" />
+  </div>
+
+    <script>
+    $(function () {
+      // Basic instantiation:
+      $('#demo-input').colorpicker();
+
+      // Example using an event, to change the color of the #demo div background:
+      $('#demo-input').on('colorpickerChange', function(event) {
+        $('#demo').css('background-color', event.color.toString());
+      });
+    });
+  </script>
 {% endblock %}
