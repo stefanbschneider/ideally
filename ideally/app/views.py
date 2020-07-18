@@ -49,6 +49,24 @@ class TagIndex(generic.ListView):
     def get_queryset(self):
         return Tag.objects.all().order_by('name')
 
+
 class TagDetail(generic.DetailView):
     model = Tag
     template_name = 'app/tag_detail.html'
+
+
+class TagCreate(CreateView):
+    template_name = 'app/tag_form.html'
+    model = Tag
+    fields = ['name', 'description', 'color']
+
+
+class TagUpdate(UpdateView):
+    model = Tag
+    fields = ['name', 'description', 'color']
+
+
+class TagDelete(DeleteView):
+    template_name = 'app/tag_delete.html'
+    model = Tag
+    success_url = reverse_lazy('app:tag-index')

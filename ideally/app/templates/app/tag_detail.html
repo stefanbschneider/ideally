@@ -10,6 +10,9 @@
       <input id="demo-input" type="text" value="rgb(255, 128, 0)" />
   </div>
 
+    <a class="btn btn-secondary" href="{% url 'app:tag-edit' tag.id %}">Edit <i class="fas fa-edit"></i></a>
+    <a class="btn btn-danger" href="{% url 'app:tag-delete' tag.id %}">Delete <i class="fas fa-trash"></i></a>
+
     <script>
     $(function () {
       // Basic instantiation:
