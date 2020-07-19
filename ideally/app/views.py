@@ -5,6 +5,7 @@ from django.views import generic
 from django.views.generic.edit import FormView, CreateView, DeleteView, UpdateView
 from django.utils import timezone
 from django.template import loader
+from django.forms import TextInput
 
 from .models import Idea, Tag
 
@@ -64,6 +65,11 @@ class TagCreate(CreateView):
 class TagUpdate(UpdateView):
     model = Tag
     fields = ['name', 'description', 'color']
+
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        form.fields['name'].widget = TextInput(attrs={})
+        return form
 
 
 class TagDelete(DeleteView):

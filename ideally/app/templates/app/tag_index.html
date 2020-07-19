@@ -7,7 +7,9 @@
             <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Description</th>
-                <th scope="col">Color</th>
+                <th scope="col">With color</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -15,7 +17,9 @@
             <tr>
                 <td><a href="{% url 'app:tag-detail' tag.id %}">{{ tag.name }}</a></td>
                 <td>{{ tag.description }}</td>
-                <td><span class="badge badge-primary" style="background-color: {{ tag.color }}">{{ tag.color }}</span></td>
+                <td><span class="badge badge-primary" style="background-color: {{ tag.color }}">{{ tag.name }}</span></td>
+                <td><a href="{% url 'app:tag-edit' tag.id %}"><i class="fas fa-edit"></i></a></td>
+                <td><a href="{% url 'app:tag-delete' tag.id %}"><i class="fas fa-trash"></i></a></td>
             </tr>
             {% endfor %}
         </tbody>

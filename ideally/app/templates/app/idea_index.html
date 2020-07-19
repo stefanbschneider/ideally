@@ -8,6 +8,8 @@
                 <th scope="col">Title</th>
                 <th scope="col">Created</th>
                 <th scope="col">Updated</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -16,6 +18,8 @@
                 <td><a href="{% url 'app:detail' idea.id %}">{{ idea.title }}</a></td>
                 <td>{{ idea.creation_date }}</td>
                 <td>{{ idea.update_date }}</td>
+                <td><a href="{% url 'app:edit' idea.id %}"><i class="fas fa-edit"></i></a></td>
+                <td><a href="{% url 'app:delete' idea.id %}"><i class="fas fa-trash"></i></a></td>
             </tr>
             {% endfor %}
         </tbody>
