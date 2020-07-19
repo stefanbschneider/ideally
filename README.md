@@ -2,6 +2,14 @@
 
 # Ideally: Organize & Grow Your Ideas
 
+## Usage
+
+
+
+## Deployment
+
+### Local
+
 ```
 # serve
 python manage.py runserver
@@ -9,6 +17,15 @@ python manage.py runserver
 # test
 python manage.py test app
 ```
+
+### Heroku
+
+Deployment is automatically updated with new pushes to `master`.
+
+Set the following config vars in Heroku (= env vars):
+
+* `DJANGO_SETTINGS_MODULE`: `project.prod_settings`
+* `DJANGO_SECRET_KEY`: `<randomly-generated-secret-key>`
 
 ## Todos
 
