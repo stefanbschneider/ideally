@@ -1,1 +1,1 @@
-web: gunicorn quotify.wsgi
+web: gunicorn project.wsgi

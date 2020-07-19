@@ -9,9 +9,10 @@ requirements = [
 
 setup(
     name='ideally',
+    author='Stefan Schneider',
     version=0.1,
     description="Ideally is a web app that allows you to organize and grow your ideas.",
-    url=None,
+    url='https://ideally-app.herokuapp.com/',
     find_packages=find_packages(),
     python_requires=">=3.8.*",
     install_requires=requirements,
