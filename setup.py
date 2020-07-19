@@ -3,7 +3,8 @@ from setuptools import setup, find_packages
 
 requirements = [
     'django==3.0.7',
-    'django-colorfield==0.3.1'
+    'django-colorfield==0.3.1',
+    'gunicorn'
 ]
 
 setup(

@@ -2,6 +2,9 @@
 
 # Ideally: Organize & Grow Your Ideas
 
+* ideally.ml
+* https://ideally-app.herokuapp.com/
+
 ## Usage
 
 
