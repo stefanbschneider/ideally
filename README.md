@@ -2,6 +2,14 @@
 
 # Ideally: Organize & Grow Your Ideas
 
+```
+# serve
+python manage.py runserver
+
+# test
+python manage.py test app
+```
+
 ## Todos
 
 * Color picking, saving, adding tags
