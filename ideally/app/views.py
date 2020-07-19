@@ -28,12 +28,12 @@ class IdeaDetail(generic.DetailView):
 class IdeaCreate(CreateView):
     template_name = 'app/idea_form.html'
     model = Idea
-    fields = ['title', 'description']
+    fields = ['title', 'description', 'tags']
 
 
 class IdeaUpdate(UpdateView):
     model = Idea
-    fields = ['title', 'description']
+    fields = ['title', 'description', 'tags']
 
 
 class IdeaDelete(DeleteView):

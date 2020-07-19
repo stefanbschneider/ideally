@@ -5,7 +5,7 @@
 ## Todos
 
 * Color picking, saving, adding tags
-* Match ideas with tags
+* add/remove tags
 * CI/CD with tests & deployment on heroku
 * Afterwards: Authentication & users
 * Make a reusable tag component that displays the tag as badge in the right color + description on mouse over + clickable to get to tag detail

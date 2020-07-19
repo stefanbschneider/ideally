@@ -23,7 +23,7 @@ class Idea(models.Model):
     update_date = models.DateTimeField('date updated', auto_now=True)
     # access tags via <idea>.tags.all(); or vice versa: <tag>.idea_set.all()
     tags = models.ManyToManyField(Tag)
-    # TODO: tags, photo, duration
+    # TODO: photo, duration
 
     def __str__(self):
         return self.title
