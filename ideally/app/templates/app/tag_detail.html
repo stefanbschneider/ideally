@@ -4,6 +4,13 @@
     <h1>{{ tag.name }}</h1>
     <p>Description: {{ tag.description }}</p>
     <p>With color: <span class="badge badge-primary" style="background-color: {{ tag.color }}">{{ tag.name }}</span></p>
+    <p>Ideas with this tag:
+        <ul>
+            {% for idea in tag.idea_set.all %}
+                <li><a href="{% url 'app:detail' idea.id %}">{{ idea.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </p>
 
 <!--    <div class="demo">-->
 <!--      <h1>Bootstrap Colorpicker Demo (with Bootstrap)</h1>-->
