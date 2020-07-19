@@ -66,10 +66,10 @@ class TagUpdate(UpdateView):
     model = Tag
     fields = ['name', 'description', 'color']
 
-    def get_form(self, form_class=None):
-        form = super().get_form(form_class)
-        form.fields['name'].widget = TextInput(attrs={})
-        return form
+    # def get_form(self, form_class=None):
+    #     form = super().get_form(form_class)
+    #     form.fields['name'].widget = TextInput(attrs={})
+    #     return form
 
 
 class TagDelete(DeleteView):
