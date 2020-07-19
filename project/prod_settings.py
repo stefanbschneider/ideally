@@ -6,7 +6,7 @@ from .settings import *
 # SECURITY #
 ############
 
-DEBUG = False
+DEBUG = True
 
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', SECRET_KEY)
 
