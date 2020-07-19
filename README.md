@@ -32,9 +32,8 @@ Set the following config vars in Heroku (= env vars):
 
 ## Todos
 
-* Color picking, saving, adding tags
-* add/remove tags
-* CI/CD with tests & deployment on heroku
+* Custom bootstrap rendering of forms, eg, for tag color picking
 * Afterwards: Authentication & users
 * Make a reusable tag component that displays the tag as badge in the right color + description on mouse over + clickable to get to tag detail
     * Without having to define it anew in each html template (eg, idea detail, tag index, tag detail)
+* search, sort, filter ideas based on tags and create/update time
