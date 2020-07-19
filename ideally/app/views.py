@@ -16,7 +16,7 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         """Return all ideas"""
-        return Idea.objects.all().order_by('update_date')
+        return Idea.objects.all().order_by('-update_date')
 
 
 # Idea views
