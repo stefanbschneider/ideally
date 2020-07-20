@@ -34,4 +34,8 @@
     {% else %}
         <p>No ideas added yet.</p>
     {% endif %}
+
+    <div class="position-absolute">
+        <a href="{% url 'app:add' %}"><i class="fas fa-plus-circle fa-3x"></i></a>
+    </div>
 {% endblock %}
