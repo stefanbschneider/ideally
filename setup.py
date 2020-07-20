@@ -4,7 +4,9 @@ from setuptools import setup, find_packages
 requirements = [
     'django==3.0.7',
     'django-colorfield==0.3.1',
-    'gunicorn'
+    'gunicorn>=20.0.4',
+    'dj-database-url>=0.5.0',
+    'psycopg2-binary>=2.8.5'
 ]
 
 setup(
