@@ -1,2 +1,2 @@
-release: python manage.py mirgrate --no-input
+release: python manage.py migrate --no-input
 web: gunicorn project.wsgi
