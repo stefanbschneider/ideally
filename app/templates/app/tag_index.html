@@ -28,4 +28,15 @@
     {% else %}
         <p>No tags added yet.</p>
     {% endif %}
+
+
+<!--    add new button -->
+    <a href="{% url 'app:tag-add' %}" style="position: fixed; bottom: 1em; left: 1em;" data-toggle="tooltip" data-placement="top" title="Add new tag">
+        <i class="fas fa-plus-circle fa-3x"></i>
+    </a>
+    <script>
+        $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 {% endblock %}
