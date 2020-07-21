@@ -6,20 +6,32 @@
         <thead>
             <tr>
                 <th scope="col">Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">With color</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
+                <th scope="col">Tag</th>
+                <th scope="col">#Ideas</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
             {% for tag in tag_list %}
             <tr>
-                <td><a href="{% url 'app:tag-detail' tag.id %}">{{ tag.name }}</a></td>
-                <td>{{ tag.description }}</td>
+                <td>
+                    <a href="{% url 'app:tag-detail' tag.id %}">{{ tag.name }}</a>
+                    <br>
+                    <div class="small">{{ tag.description }}</div>
+                </td>
                 <td><span class="badge badge-primary" style="background-color: {{ tag.color }}">{{ tag.name }}</span></td>
-                <td><a href="{% url 'app:tag-edit' tag.id %}"><i class="fas fa-edit"></i></a></td>
-                <td><a href="{% url 'app:tag-delete' tag.id %}"><i class="fas fa-trash"></i></a></td>
+                <td>{{ tag.idea_set.count }}</td>
+                <td>
+                    <a href="{% url 'app:tag-detail' tag.id %}" style="margin: 5px;" data-toggle="tooltip" data-placement="top" title="Detail">
+                        <i class="fas fa-info-circle"></i>
+                    </a>
+                    <a href="{% url 'app:tag-edit' tag.id %}" style="margin: 5px;" data-toggle="tooltip" data-placement="top" title="Edit">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="{% url 'app:tag-delete' tag.id %}" style="margin: 5px;" data-toggle="tooltip" data-placement="top" title="Delete">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

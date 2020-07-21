@@ -16,7 +16,7 @@
                 <td>
                     <a href="{% url 'app:detail' idea.id %}">{{ idea.title }}</a>
                     <br>
-                    <div class="font-weight-light small">{{ idea.description }}</div>
+                    <div class="small">{{ idea.description }}</div>
                 </td>
                 <td>
                     {% for tag in idea.tags.all %}
