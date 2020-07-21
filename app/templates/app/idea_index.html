@@ -7,10 +7,7 @@
             <tr>
                 <th scope="col">Title</th>
                 <th scope="col">Tags</th>
-                <th scope="col">Created</th>
-                <th scope="col">Updated</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -22,10 +19,17 @@
                         <span class="badge badge-primary" style="background-color: {{ tag.color }}">{{ tag.name }}</span>
                     {% endfor %}
                 </td>
-                <td>{{ idea.creation_date }}</td>
-                <td>{{ idea.update_date }}</td>
-                <td><a href="{% url 'app:edit' idea.id %}"><i class="fas fa-edit"></i></a></td>
-                <td><a href="{% url 'app:delete' idea.id %}"><i class="fas fa-trash"></i></a></td>
+                <td>
+                    <a href="{% url 'app:detail' idea.id %}" style="margin: 5px;" data-toggle="tooltip" data-placement="top" title="Detail">
+                        <i class="fas fa-info-circle"></i>
+                    </a>
+                    <a href="{% url 'app:edit' idea.id %}" style="margin: 5px;" data-toggle="tooltip" data-placement="top" title="Edit">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a href="{% url 'app:delete' idea.id %}" style="margin: 5px;" data-toggle="tooltip" data-placement="top" title="Delete">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
