@@ -2,8 +2,8 @@
 
 {% block content %}
     <h1>{{ tag.name }}</h1>
+    <p><span class="badge badge-primary" style="background-color: {{ tag.color }}">{{ tag.name }}</span></p>
     <p>Description: {{ tag.description }}</p>
-    <p>With color: <span class="badge badge-primary" style="background-color: {{ tag.color }}">{{ tag.name }}</span></p>
     <p>Ideas with this tag:
         <ul>
             {% for idea in tag.idea_set.all %}
