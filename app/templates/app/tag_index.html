@@ -19,7 +19,7 @@
                     <br>
                     <div class="small">{{ tag.description }}</div>
                 </td>
-                <td><span class="badge badge-primary" style="background-color: {{ tag.color }}">{{ tag.name }}</span></td>
+                <td><a href="{% url 'app:tag-detail' tag.id %}"><span class="badge badge-primary" style="background-color: {{ tag.color }}">{{ tag.name }}</span></a></td>
                 <td>{{ tag.idea_set.count }}</td>
                 <td>
                     <a href="{% url 'app:tag-detail' tag.id %}" style="margin: 5px;" data-toggle="tooltip" data-placement="top" title="Detail">

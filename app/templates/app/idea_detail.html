@@ -11,7 +11,7 @@
 
     <p>Tags:
         {% for tag in idea.tags.all %}
-            <span class="badge badge-primary" style="background-color: {{ tag.color }}">{{ tag.name }}</span>
+            <a href="{% url 'app:tag-detail' tag.id %}"><span class="badge badge-primary" style="background-color: {{ tag.color }}">{{ tag.name }}</span></a>
         {% endfor %}
     </p>
 
