@@ -9,6 +9,9 @@
     </p>
     <p>Description: {{ idea.description }}</p>
 
+<!--    FIXME: either the image is not saved correctly or I can't access it like this-->
+    <p>Image: {{ idea.image }}</p>
+
     <p>Tags:
         {% for tag in idea.tags.all %}
             <a href="{% url 'app:tag-detail' tag.id %}"><span class="badge badge-primary" style="background-color: {{ tag.color }}">{{ tag.name }}</span></a>

@@ -28,12 +28,13 @@ class IdeaDetail(generic.DetailView):
 class IdeaCreate(CreateView):
     template_name = 'app/idea_form.html'
     model = Idea
-    fields = ['title', 'description', 'tags']
+    # TODO: allow creating an idea without adding any tags
+    fields = ['title', 'description', 'tags', 'image']
 
 
 class IdeaUpdate(UpdateView):
     model = Idea
-    fields = ['title', 'description', 'tags']
+    fields = ['title', 'description', 'tags', 'image']
 
 
 class IdeaDelete(DeleteView):

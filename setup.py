@@ -3,6 +3,7 @@ from setuptools import setup, find_packages
 
 requirements = [
     'django==3.0.7',
+    'Pillow>=7.2.0',
     'django-colorfield==0.3.1',
     'gunicorn>=20.0.4',
     'dj-database-url>=0.5.0',

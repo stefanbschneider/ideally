@@ -23,6 +23,8 @@ class Idea(models.Model):
     update_date = models.DateTimeField('date updated', auto_now=True)
     # access tags via <idea>.tags.all(); or vice versa: <tag>.idea_set.all()
     tags = models.ManyToManyField(Tag)
+    image = models.ImageField(upload_to='images', blank=True)
+    # image = models.ImageField(default='app/icons8-idea-512.png')
     # TODO: photo, duration
 
     def __str__(self):
