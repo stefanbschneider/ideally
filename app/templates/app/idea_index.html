@@ -13,7 +13,11 @@
         <tbody>
             {% for idea in idea_list %}
             <tr>
-                <td><a href="{% url 'app:detail' idea.id %}">{{ idea.title }}</a></td>
+                <td>
+                    <a href="{% url 'app:detail' idea.id %}">{{ idea.title }}</a>
+                    <br>
+                    <div class="font-weight-light small">{{ idea.description }}</div>
+                </td>
                 <td>
                     {% for tag in idea.tags.all %}
                         <span class="badge badge-primary" style="background-color: {{ tag.color }}">{{ tag.name }}</span>
