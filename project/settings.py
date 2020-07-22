@@ -56,7 +56,7 @@ ROOT_URLCONF = 'project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'project', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,3 +122,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # path to where static files are copied for deployment (eg, for heroku)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+# Authentication
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = '/'
+# Logs emails (eg, for password reset) to the console instead of sending them. For development only.
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
