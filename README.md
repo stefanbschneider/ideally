@@ -34,6 +34,8 @@ Set the following config vars in Heroku (= env vars):
 
 * Custom bootstrap rendering of forms, eg, for tag color picking
 * Afterwards: Authentication & users
+    * https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication (continue at testing against authenticated users)
+    * https://docs.djangoproject.com/en/3.0/topics/auth/default/
 * Make a reusable tag component that displays the tag as badge in the right color + description on mouse over + clickable to get to tag detail
     * Without having to define it anew in each html template (eg, idea detail, tag index, tag detail)
 * search, sort, filter ideas based on tags and create/update time

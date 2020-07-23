@@ -125,6 +125,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # Authentication
+LOGIN_URL = '/accounts/login/'
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
 # Logs emails (eg, for password reset) to the console instead of sending them. For development only.

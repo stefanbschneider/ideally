@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse, reverse_lazy
 from django.views import generic
 from django.views.generic.edit import FormView, CreateView, DeleteView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils import timezone
 from django.template import loader
 from django.forms import TextInput
@@ -10,7 +11,7 @@ from django.forms import TextInput
 from .models import Idea, Tag
 
 
-class IndexView(generic.ListView):
+class IndexView(LoginRequiredMixin, generic.ListView):
     template_name = 'app/idea_index.html'
     context_object_name = 'idea_list'
 
