@@ -21,31 +21,31 @@ class IndexView(LoginRequiredMixin, generic.ListView):
 
 
 # Idea views
-class IdeaDetail(generic.DetailView):
+class IdeaDetail(LoginRequiredMixin, generic.DetailView):
     model = Idea
     template_name = 'app/idea_detail.html'
 
 
-class IdeaCreate(CreateView):
+class IdeaCreate(LoginRequiredMixin, CreateView):
     template_name = 'app/idea_form.html'
     model = Idea
     # TODO: allow creating an idea without adding any tags
     fields = ['title', 'description', 'tags', 'image']
 
 
-class IdeaUpdate(UpdateView):
+class IdeaUpdate(LoginRequiredMixin, UpdateView):
     model = Idea
     fields = ['title', 'description', 'tags', 'image']
 
 
-class IdeaDelete(DeleteView):
+class IdeaDelete(LoginRequiredMixin, DeleteView):
     template_name = 'app/idea_delete.html'
     model = Idea
     success_url = reverse_lazy('app:index')
 
 
 # Tag views
-class TagIndex(generic.ListView):
+class TagIndex(LoginRequiredMixin, generic.ListView):
     template_name = 'app/tag_index.html'
     context_object_name = 'tag_list'
 
@@ -53,18 +53,18 @@ class TagIndex(generic.ListView):
         return Tag.objects.all().order_by('name')
 
 
-class TagDetail(generic.DetailView):
+class TagDetail(LoginRequiredMixin, generic.DetailView):
     model = Tag
     template_name = 'app/tag_detail.html'
 
 
-class TagCreate(CreateView):
+class TagCreate(LoginRequiredMixin, CreateView):
     template_name = 'app/tag_form.html'
     model = Tag
     fields = ['name', 'description', 'color']
 
 
-class TagUpdate(UpdateView):
+class TagUpdate(LoginRequiredMixin, UpdateView):
     model = Tag
     fields = ['name', 'description', 'color']
 
@@ -74,7 +74,7 @@ class TagUpdate(UpdateView):
     #     return form
 
 
-class TagDelete(DeleteView):
+class TagDelete(LoginRequiredMixin, DeleteView):
     template_name = 'app/tag_delete.html'
     model = Tag
     success_url = reverse_lazy('app:tag-index')
