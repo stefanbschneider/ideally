@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 from colorfield.fields import ColorField
 
 
@@ -21,8 +22,10 @@ class Idea(models.Model):
     description = models.CharField(max_length=5000)
     creation_date = models.DateTimeField('date created', auto_now=True)
     update_date = models.DateTimeField('date updated', auto_now=True)
+    # cascade: delete idea when owner is deleted
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     # access tags via <idea>.tags.all(); or vice versa: <tag>.idea_set.all()
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, blank=True)
     image = models.ImageField(upload_to='images', blank=True)
     # image = models.ImageField(default='app/icons8-idea-512.png')
     # TODO: photo, duration
