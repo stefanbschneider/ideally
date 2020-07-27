@@ -16,8 +16,8 @@ class IndexView(LoginRequiredMixin, generic.ListView):
     context_object_name = 'idea_list'
 
     def get_queryset(self):
-        """Return all ideas"""
-        return Idea.objects.all().order_by('-update_date')
+        """Return all ideas of the user ordered by date"""
+        return Idea.objects.filter(owner=self.request.user).order_by('-update_date')
 
 
 # Idea views
