@@ -7,8 +7,9 @@ from colorfield.fields import ColorField
 class Tag(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
-    color = ColorField(default='#FF0000')
-    # ideas = models.ManyToManyField(Idea)
+    # color = ColorField(default='#FF0000')
+    color = models.CharField(max_length=7, default='#FF0000')
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.name

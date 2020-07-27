@@ -32,6 +32,10 @@ class IdeaCreate(LoginRequiredMixin, CreateView):
     # TODO: allow creating an idea without adding any tags
     fields = ['title', 'description', 'tags', 'image']
 
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
+
 
 class IdeaUpdate(LoginRequiredMixin, UpdateView):
     model = Idea
@@ -50,7 +54,7 @@ class TagIndex(LoginRequiredMixin, generic.ListView):
     context_object_name = 'tag_list'
 
     def get_queryset(self):
-        return Tag.objects.all().order_by('name')
+        return Tag.objects.filter(owner=self.request.user).order_by('name')
 
 
 class TagDetail(LoginRequiredMixin, generic.DetailView):
@@ -62,6 +66,10 @@ class TagCreate(LoginRequiredMixin, CreateView):
     template_name = 'app/tag_form.html'
     model = Tag
     fields = ['name', 'description', 'color']
+
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
 
 
 class TagUpdate(LoginRequiredMixin, UpdateView):
