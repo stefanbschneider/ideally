@@ -130,3 +130,7 @@ LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 # Logs emails (eg, for password reset) to the console instead of sending them. For development only.
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# User registration with django-registration
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_OPEN = True
