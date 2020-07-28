@@ -29,6 +29,8 @@ Set the following config vars in Heroku (= env vars):
 
 * `DJANGO_SETTINGS_MODULE`: `project.prod_settings`
 * `DJANGO_SECRET_KEY`: `<randomly-generated-secret-key>`
+* `DATABASE_URL`: URL to Heroku Postgres DB
+* `SENDGRID_API_KEY`: `<sendgrid-api-key>`
 
 ## Todos
 
