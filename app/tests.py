@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.urls import reverse
+from django.contrib.auth import get_user_model
 
 from .models import Idea, Tag
 
@@ -14,8 +15,18 @@ def create_tag(name, description):
 
 
 class IdeaIndexTests(TestCase):
+    def setUp(self):
+        User = get_user_model()
+        user = User.objects.create_user('temporary', 'temp@gmail.com', 'temporary')
+        # TODO: also test that pages are not accessible without login!
+        # FIXME: fix tests
+
     def test_no_ideas(self):
         """If no idea exists, an appropriate message is displayed."""
+        # login first to access idea list: https://stackoverflow.com/a/7367945/2745116
+        User = get_user_model()
+        self.client.login(username='temporary', password='temporary')
+
         response = self.client.get(reverse('app:index'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "No ideas added yet.")
@@ -23,6 +34,10 @@ class IdeaIndexTests(TestCase):
 
     def test_one_two_ideas(self):
         """Create two ideas and test if they are listed (newest first)"""
+        # login first to access idea list: https://stackoverflow.com/a/7367945/2745116
+        User = get_user_model()
+        self.client.login(username='temporary', password='temporary')
+
         create_idea('idea one', 'description1')
         response = self.client.get(reverse('app:index'))
         self.assertQuerysetEqual(response.context['idea_list'], ['<Idea: idea one>'])
