@@ -11,12 +11,12 @@
             {#    {% if form.help_text %}#}
             {#    <small class="form-text text-muted">{{ form.help_text }}</small>#}
             {#    {% endif %}#}
-            {{ form.color.errors }}
+            {{ form.name.errors }}
         </div>
         <div class="form-group">
             {{ form.description.label_tag }}
             <input class="form-control" type="text" id="{{ form.description.id_for_label }}" name="{{ form.description.name }}" value="{{ form.description.value }}">
-            {{ form.color.errors }}
+            {{ form.description.errors }}
         </div>
         <div class="form-group">
             {{ form.color.label_tag }}
@@ -24,6 +24,6 @@
             {{ form.color.errors }}
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Save</button>
     </form>
 {% endblock %}
