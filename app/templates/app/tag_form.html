@@ -3,35 +3,27 @@
 {% block content %}
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+{#        {{ form.as_p }}#}
 
-<!-- TODO: properly style fields using bootstrap, eg, for color picker-->
+        <div class="form-group">
+            {{ form.name.label_tag }}
+            <input class="form-control" type="text" id="{{ form.name.id_for_label }}" name="{{ form.name.name }}" value="{{ form.name.value }}">
+            {#    {% if form.help_text %}#}
+            {#    <small class="form-text text-muted">{{ form.help_text }}</small>#}
+            {#    {% endif %}#}
+            {{ form.name.errors }}
+        </div>
+        <div class="form-group">
+            {{ form.description.label_tag }}
+            <input class="form-control" type="text" id="{{ form.description.id_for_label }}" name="{{ form.description.name }}" value="{{ form.description.value }}">
+            {{ form.description.errors }}
+        </div>
+        <div class="form-group">
+            {{ form.color.label_tag }}
+            <input class="form-control" type="color" id="{{ form.color.id_for_label }}" name="{{ form.color.name }}" value="{{ form.color.value }}">
+            {{ form.color.errors }}
+        </div>
 
-<!--        {{ form.non_field_errors }}-->
-<!--        <div class="fieldWrapper">-->
-<!--            <div class="form-group">-->
-<!--                {{ form.name.errors }}-->
-<!--                <label for="{{ form.name.id_for_label }}">Name</label>-->
-<!--                {{ form.name }}-->
-<!--&lt;!&ndash;                <label for="nameInput">Name</label>&ndash;&gt;-->
-<!--&lt;!&ndash;                <input class="form-control" type="text" id="nameInput"placeholder="Name" value="{{ tag.name }}">&ndash;&gt;-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--        <div class="form-group">-->
-<!--            <label for="nameInput">Name</label>-->
-<!--            <input class="form-control" type="text" id="nameInput" placeholder="Name" value="{{ tag.name }}">-->
-<!--        </div>-->
-<!--        <div class="form-group">-->
-<!--            <label for="descrInput">Description</label>-->
-<!--            <input class="form-control" type="text" id="descrInput" placeholder="Description" value="{{ tag.description }}">-->
-<!--        </div>-->
-<!--        <div class="form-group">-->
-<!--            <label for="colorInput">Color</label>-->
-<!--            <input class="form-control" type="color" id="colorInput" placeholder="Color" value="{{ tag.color }}">-->
-<!--        </div>-->
-
-        <input type="submit" value="Save">
-<!--        <button type="submit" class="btn btn-primary">Submit</button>-->
+        <button type="submit" class="btn btn-primary">Save</button>
     </form>
 {% endblock %}
