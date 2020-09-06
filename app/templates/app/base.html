@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +23,9 @@
 
       gtag('config', 'UA-133644626-3');
     </script>
+
+    {# favicon: requires "load static" at top   #}
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
 
     {# cookie banner #}
     <link rel="stylesheet" type="text/css" href="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.css"/><script src="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.js" defer></script><script>window.addEventListener("load", function(){window.wpcc.init({"border":"thin","corners":"small","colors":{"popup":{"background":"#f6f6f6","text":"#000000","border":"#555555"},"button":{"background":"#555555","text":"#ffffff"}},"position":"bottom","transparency":"10","content":{"href":"https://www.websitepolicies.com/policies/view/bu81NMv1"}})});</script>

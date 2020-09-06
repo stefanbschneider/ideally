@@ -9,7 +9,8 @@ requirements = [
     'gunicorn>=20.0.4',
     'dj-database-url>=0.5.0',
     'psycopg2-binary>=2.8.5',
-    'freezegun'
+    'freezegun',
+    'django-pwa'
 ]
 
 setup(

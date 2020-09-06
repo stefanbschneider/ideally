@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'app.apps.AppConfig',
     'colorfield',
+    # 'pwa',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -122,6 +123,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # path to where static files are copied for deployment (eg, for heroku)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# location of static files in local development: https://learndjango.com/tutorials/django-favicon-tutorial
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 
 
 # Authentication

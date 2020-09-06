@@ -34,9 +34,10 @@ Set the following config vars in Heroku (= env vars):
 
 ## Todos
 
-* google analytics
+* Favicon
 * PWA: https://github.com/silviolleite/django-pwa
 * search, sort, filter ideas based on tags and create/update time
+* fix image upload
 * add milestones, notes to ideas
 * improve usability by asking others what to improve
 
