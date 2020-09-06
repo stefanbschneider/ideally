@@ -1,4 +1,5 @@
 from django.urls import path
+from django.views.generic import TemplateView
 
 from .views import IndexView, IdeaDetail, IdeaCreate, IdeaUpdate, IdeaDelete, \
     TagIndex, TagDetail, TagCreate, TagUpdate, TagDelete
@@ -7,12 +8,14 @@ from .views import IndexView, IdeaDetail, IdeaCreate, IdeaUpdate, IdeaDelete, \
 app_name = 'app'
 
 urlpatterns = [
+    path('about/', TemplateView.as_view(template_name='app/about.html'), name='about'),
+
     # idea views
-    path('', IndexView.as_view(), name='index'),
-    path('<int:pk>/', IdeaDetail.as_view(), name='detail'),
-    path('add/', IdeaCreate.as_view(), name='add'),
-    path('<int:pk>/edit/', IdeaUpdate.as_view(), name='edit'),
-    path('<int:pk>/delete/', IdeaDelete.as_view(), name='delete'),
+    path('idea/', IndexView.as_view(), name='index'),
+    path('idea/<int:pk>/', IdeaDetail.as_view(), name='detail'),
+    path('idea/add/', IdeaCreate.as_view(), name='add'),
+    path('idea/<int:pk>/edit/', IdeaUpdate.as_view(), name='edit'),
+    path('idea/<int:pk>/delete/', IdeaDelete.as_view(), name='delete'),
 
     # tag views
     path('tag/', TagIndex.as_view(), name='tag-index'),

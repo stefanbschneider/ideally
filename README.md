@@ -34,8 +34,11 @@ Set the following config vars in Heroku (= env vars):
 
 ## Todos
 
-* Custom bootstrap rendering of forms, eg, for tag color picking
-    * https://simpleisbetterthancomplex.com/article/2017/08/19/how-to-render-django-form-manually.html
-* Afterwards: Authentication & users
-    * When creating a new idea, the tags to select should also just be from the logged in user
+* public landing page
+* footer: credits, website, privacy/cookies
+* google analytics
+* PWA: https://github.com/silviolleite/django-pwa
 * search, sort, filter ideas based on tags and create/update time
+* add milestones, notes to ideas
+* improve usability by asking others what to improve
+
