@@ -11,12 +11,15 @@
 <!--    Bootstrap Colorpicker Plugin -->
     <link href="https://unpkg.com/bootstrap-colorpicker@3.2.0/dist/css/bootstrap-colorpicker.css" rel="stylesheet">
 
+{# cookie banner #}
+    <link rel="stylesheet" type="text/css" href="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.css"/><script src="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.js" defer></script><script>window.addEventListener("load", function(){window.wpcc.init({"border":"thin","corners":"small","colors":{"popup":{"background":"#f6f6f6","text":"#000000","border":"#555555"},"button":{"background":"#555555","text":"#ffffff"}},"position":"bottom","transparency":"10","content":{"href":"https://www.websitepolicies.com/policies/view/bu81NMv1"}})});</script>
+
     <title>Ideally</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
 <!--        Branding and title -->
-        <a class="navbar-brand" href="{% url 'app:index' %}">
+        <a class="navbar-brand" href="{% url 'app:redirect' %}">
             <i class="fas fa-lightbulb"></i>
             Ideally
         </a>
@@ -55,6 +58,8 @@
 
         {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
     </div>
+
+    {% include "includes/footer.html" %}
 
 <!--    Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

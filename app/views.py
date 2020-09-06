@@ -11,6 +11,15 @@ from django.forms import TextInput
 from .models import Idea, Tag
 
 
+# landing page redirects to idea index if logged in and to about otherwise
+def redirect_landing_page(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('app:index'))
+    else:
+        return HttpResponseRedirect(reverse('app:about'))
+
+
+# Idea views
 class IndexView(LoginRequiredMixin, generic.ListView):
     template_name = 'app/idea_index.html'
     context_object_name = 'idea_list'
@@ -19,8 +28,6 @@ class IndexView(LoginRequiredMixin, generic.ListView):
         """Return all ideas of the user ordered by date"""
         return Idea.objects.filter(owner=self.request.user).order_by('-update_date')
 
-
-# Idea views
 class IdeaDetail(LoginRequiredMixin, generic.DetailView):
     model = Idea
     template_name = 'app/idea_detail.html'

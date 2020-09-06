@@ -31,6 +31,11 @@ class Idea(models.Model):
     # image = models.ImageField(default='app/icons8-idea-512.png')
     # TODO: photo, duration
 
+    @property
+    def user_tags(self):
+        """All tags that belong to the owner"""
+        return Tag.objects.filter(owner=self.owner).order_by('name')
+
     def __str__(self):
         return self.title
 

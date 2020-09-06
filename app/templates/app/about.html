@@ -1,0 +1,19 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+    <h2>Ideally: Organize and Grow Your Ideas</h2>
+
+    <p>Are you creative and full of great ideas? Then Ideally is for you!</p>
+    <ul>
+        <li>Ideally helps you keep track of your ideas</li>
+        <li>Ideally lets you organize and filter ideas by using tags</li>
+        <li>With Ideally you can grow your idea by adding milestones, photos, or notes</li>
+        <li>Ideally is simple and responsive and works on any device, wherever you are</li>
+        <li>Ideally is completely free and open source!</li>
+    </ul>
+    <p>
+        To get started, sign up or log in.
+    </p>
+    <a href="{% url 'django_registration_register' %}" class="btn btn-primary">Sign Up</a>
+    <a href="{% url 'login' %}" class="btn btn-primary">Log In</a>
+{% endblock %}
