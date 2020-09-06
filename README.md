@@ -34,7 +34,6 @@ Set the following config vars in Heroku (= env vars):
 
 ## Todos
 
-* public landing page
 * footer: credits, website, privacy/cookies
 * google analytics
 * PWA: https://github.com/silviolleite/django-pwa
