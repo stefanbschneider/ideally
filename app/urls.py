@@ -2,12 +2,13 @@ from django.urls import path
 from django.views.generic import TemplateView
 
 from .views import IndexView, IdeaDetail, IdeaCreate, IdeaUpdate, IdeaDelete, \
-    TagIndex, TagDetail, TagCreate, TagUpdate, TagDelete
+    TagIndex, TagDetail, TagCreate, TagUpdate, TagDelete, redirect_landing_page
 
 
 app_name = 'app'
 
 urlpatterns = [
+    path('', redirect_landing_page, name='redirect'),
     path('about/', TemplateView.as_view(template_name='app/about.html'), name='about'),
 
     # idea views
