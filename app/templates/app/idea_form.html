@@ -17,9 +17,9 @@
         </div>
         <div class="form-group">
             {{ form.tags.label_tag }}
-            <select multiple class="form-control" id="{{ form.tags.id_for_label }}" name="{{ form.tags.name }}" value="{{ form.tags.value }}">
+            <select multiple class="form-control" id="{{ form.tags.id_for_label }}" name="{{ form.tags.name }}">
                 {% for tag in idea.user_tags.all %}
-                    <option value="{{ tag.id }}">{{ tag }}</option>
+                    <option value="{{ tag.id }}" {% if tag in idea.tags.all %} selected {% endif %}>{{ tag }}</option>
                 {% endfor %}
             </select>
         </div>

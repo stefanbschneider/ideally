@@ -36,6 +36,9 @@ class Idea(models.Model):
         """All tags that belong to the owner"""
         return Tag.objects.filter(owner=self.owner).order_by('name')
 
+    def has_tag(self, tag):
+        return Tag.objects.filter(id=tag.id, )
+
     def __str__(self):
         return self.title
 

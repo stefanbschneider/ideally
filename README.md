@@ -34,7 +34,6 @@ Set the following config vars in Heroku (= env vars):
 
 ## Todos
 
-* footer: credits, website, privacy/cookies
 * google analytics
 * PWA: https://github.com/silviolleite/django-pwa
 * search, sort, filter ideas based on tags and create/update time
