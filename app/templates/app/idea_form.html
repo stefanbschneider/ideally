@@ -18,8 +18,9 @@
         <div class="form-group">
             {{ form.tags.label_tag }}
             <select multiple class="form-control" id="{{ form.tags.id_for_label }}" name="{{ form.tags.name }}" value="{{ form.tags.value }}">
-{#                {%  for tag in  %}#}
-{#                TODO: show all tags of the user; or somehow filter them in the view up front?#}
+                {% for tag in idea.user_tags.all %}
+                    <option value="{{ tag.id }}">{{ tag }}</option>
+                {% endfor %}
             </select>
         </div>
         <div class="form-group">
