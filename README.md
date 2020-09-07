@@ -34,7 +34,7 @@ Set the following config vars in Heroku (= env vars):
 
 ## Todos
 
-* Favicon
+* fix serving static files in production; for favicon: https://devcenter.heroku.com/articles/django-assets
 * PWA: https://github.com/silviolleite/django-pwa
 * search, sort, filter ideas based on tags and create/update time
 * fix image upload

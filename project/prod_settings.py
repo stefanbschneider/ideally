@@ -1,6 +1,7 @@
 """ Production Settings """
 import dj_database_url
 
+# default: use settings from main settings.py if not overwritten
 from .settings import *
 
 
