@@ -10,7 +10,8 @@ requirements = [
     'dj-database-url>=0.5.0',
     'psycopg2-binary>=2.8.5',
     'freezegun',
-    'django-pwa'
+    'django-pwa',
+    'whitenoise>=5.2.0'
 ]
 
 setup(
