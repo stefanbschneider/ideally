@@ -11,7 +11,8 @@ requirements = [
     'psycopg2-binary>=2.8.5',
     'freezegun',
     'django-pwa',
-    'whitenoise>=5.2.0'
+    'whitenoise>=5.2.0',
+    'django-pwa>=1.0.10'
 ]
 
 setup(

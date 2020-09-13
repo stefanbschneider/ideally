@@ -1,4 +1,6 @@
 {% load static %}
+{% load pwa %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,18 +27,22 @@
     </script>
 
     {# favicon: requires "load static" at top; https://realfavicongenerator.net ; then modify how static files are loaded  #}
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'apple-touch-icon.png' %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16x16.png' %}">
-    <link rel="manifest" href="{% static 'site.webmanifest' %}">
-    <link rel="mask-icon" href="{% static 'safari-pinned-tab.svg' %}" color="#ffffff">
-    <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-config" content="{% static 'browserconfig.xml' %}">
-    <meta name="theme-color" content="#ffffff">
+{#    now handled automatically by django-pwa #}
+    {#    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'apple-touch-icon.png' %}">#}
+{#    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32x32.png' %}">#}
+{#    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16x16.png' %}">#}
+{#    <link rel="manifest" href="{% static 'site.webmanifest' %}">#}
+{#    <link rel="mask-icon" href="{% static 'safari-pinned-tab.svg' %}" color="#ffffff">#}
+{#    <link rel="shortcut icon" href="{% static 'favicon.ico' %}">#}
+{#    <meta name="msapplication-TileColor" content="#ffffff">#}
+{#    <meta name="msapplication-config" content="{% static 'browserconfig.xml' %}">#}
+{#    <meta name="theme-color" content="#ffffff">#}
 
     {# cookie banner #}
     <link rel="stylesheet" type="text/css" href="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.css"/><script src="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.js" defer></script><script>window.addEventListener("load", function(){window.wpcc.init({"border":"thin","corners":"small","colors":{"popup":{"background":"#f6f6f6","text":"#000000","border":"#555555"},"button":{"background":"#555555","text":"#ffffff"}},"position":"bottom","transparency":"10","content":{"href":"https://www.websitepolicies.com/policies/view/bu81NMv1"}})});</script>
+
+    {# django-pwa #}
+    {% progressive_web_app_meta %}
 
     <title>Ideally</title>
 </head>

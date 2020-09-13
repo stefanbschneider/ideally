@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from django.views.generic import TemplateView
 
 from .views import IndexView, IdeaDetail, IdeaCreate, IdeaUpdate, IdeaDelete, \
@@ -8,6 +8,7 @@ from .views import IndexView, IdeaDetail, IdeaCreate, IdeaUpdate, IdeaDelete, \
 app_name = 'app'
 
 urlpatterns = [
+    path('', include('pwa.urls')),  # You MUST use an empty string as the URL prefix
     path('', redirect_landing_page, name='redirect'),
     path('about/', TemplateView.as_view(template_name='app/about.html'), name='about'),
 

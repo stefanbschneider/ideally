@@ -21,7 +21,7 @@ python manage.py runserver
 python manage.py test app
 ```
 
-### Heroku
+### Production Deployment on Heroku
 
 Deployment is automatically updated with new pushes to `master`.
 
@@ -31,6 +31,8 @@ Set the following config vars in Heroku (= env vars):
 * `DJANGO_SECRET_KEY`: `<randomly-generated-secret-key>`
 * `DATABASE_URL`: URL to Heroku Postgres DB
 * `SENDGRID_API_KEY`: `<sendgrid-api-key>`
+
+For serving static files (e.g., favicon) in production, Ideally uses `whitenoise`.
 
 ## Todos
 
