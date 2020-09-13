@@ -36,8 +36,8 @@ For serving static files (e.g., favicon) in production, Ideally uses `whitenoise
 
 ## Todos
 
-* fix serving static files in production; for favicon: https://devcenter.heroku.com/articles/django-assets
 * PWA: https://github.com/silviolleite/django-pwa
+    * fixme: doesn't show add to home screen
 * search, sort, filter ideas based on tags and create/update time
 * fix image upload
 * add milestones, notes to ideas
