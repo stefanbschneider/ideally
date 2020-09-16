@@ -9,8 +9,11 @@
     </p>
     <p>Description: {{ idea.description }}</p>
 
-{#    <p>Image: {{ idea.image }}</p>#}
-    <img src="{{ idea.image.url }}" alt="Uploaded image for idea">
+    {% if idea.image == "" %}
+        <p>No image uploaded for this idea.</p>
+    {% else %}
+        <img src="{{ idea.image.url }}" alt="Uploaded image for idea">
+    {% endif %}
 
     <p>Tags:
         {% for tag in idea.tags.all %}
