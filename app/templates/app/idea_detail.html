@@ -9,8 +9,8 @@
     </p>
     <p>Description: {{ idea.description }}</p>
 
-<!--    FIXME: either the image is not saved correctly or I can't access it like this-->
-    <p>Image: {{ idea.image }}</p>
+{#    <p>Image: {{ idea.image }}</p>#}
+    <img src="{{ idea.image.url }}" alt="Uploaded image for idea">
 
     <p>Tags:
         {% for tag in idea.tags.all %}

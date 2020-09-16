@@ -1,5 +1,7 @@
 from django.urls import path, include
 from django.views.generic import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
 
 from .views import IndexView, IdeaDetail, IdeaCreate, IdeaUpdate, IdeaDelete, \
     TagIndex, TagDetail, TagCreate, TagUpdate, TagDelete, redirect_landing_page
@@ -25,4 +27,4 @@ urlpatterns = [
     path('tag/add/', TagCreate.as_view(), name='tag-add'),
     path('tag/<int:pk>/edit/', TagUpdate.as_view(), name='tag-edit'),
     path('tag/<int:pk>/delete/', TagDelete.as_view(), name='tag-delete'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

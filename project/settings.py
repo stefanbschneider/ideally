@@ -128,6 +128,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # location of static files in local development: https://learndjango.com/tutorials/django-favicon-tutorial
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 
+# Media files, uploaded by user
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 
 # Authentication
 LOGIN_URL = '/accounts/login/'
