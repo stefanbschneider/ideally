@@ -26,4 +26,4 @@ EMAIL_HOST_PASSWORD = os.getenv('SENDGRID_API_KEY')
 EMAIL_USE_SSL = True
 
 # disable console.log debugging for django-pwa
-PWA_APP_DEBUG_MODE = False
+# PWA_APP_DEBUG_MODE = False
