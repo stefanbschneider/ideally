@@ -11,7 +11,9 @@ requirements = [
     'freezegun',
     'django-pwa',
     'whitenoise>=5.2.0',
-    'django-pwa>=1.0.10'
+    'django-pwa>=1.0.10',
+    # TODO: I don't use colorfield, but can't remove it's in my initial migration & I can't edit migrations
+    'django-colorfield'
 ]
 
 setup(
