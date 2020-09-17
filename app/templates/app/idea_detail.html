@@ -12,7 +12,7 @@
     {% if idea.image == "" %}
         <p>No image uploaded for this idea.</p>
     {% else %}
-        <img src="{{ idea.image.url }}" alt="Uploaded image for idea">
+        <img src="{{ idea.image.url }}" alt="Uploaded image for idea with URL {{ idea.image.url }}">
     {% endif %}
 
     <p>Tags:
