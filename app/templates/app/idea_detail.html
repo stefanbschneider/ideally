@@ -7,7 +7,19 @@
         <br>
         Updated on: {{ idea.update_date }}
     </p>
-    <p>Description: {{ idea.description }}</p>
+
+    <p>Tags:
+        {% for tag in idea.tags.all %}
+            <a href="{% url 'app:tag-detail' tag.id %}"><span class="badge badge-primary" style="background-color: {{ tag.color }}">{{ tag.name }}</span></a>
+        {% endfor %}
+    </p>
+
+    <div class="card">
+        <div class="card-header">Description</div>
+        <div class="card-body">
+            <div class="card-text">{{ idea.description }}</div>
+        </div>
+    </div>
 
 {#    {% if idea.image == "" %}#}
 {#        <p>No image uploaded for this idea.</p>#}
@@ -15,11 +27,6 @@
 {#        <img src="{{ idea.image.url }}" alt="Uploaded image for idea with URL {{ idea.image.url }}">#}
 {#    {% endif %}#}
 
-    <p>Tags:
-        {% for tag in idea.tags.all %}
-            <a href="{% url 'app:tag-detail' tag.id %}"><span class="badge badge-primary" style="background-color: {{ tag.color }}">{{ tag.name }}</span></a>
-        {% endfor %}
-    </p>
 
     <a class="btn btn-secondary" href="{% url 'app:edit' idea.id %}">Edit <i class="fas fa-edit"></i></a>
     <a class="btn btn-danger" href="{% url 'app:delete' idea.id %}">Delete <i class="fas fa-trash"></i></a>
