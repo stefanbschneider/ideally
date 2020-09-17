@@ -15,12 +15,26 @@
     </p>
 
     {% if idea.description != "" %}
-    <div class="card">
-        <div class="card-header">Description</div>
-        <div class="card-body">
-            <div class="card-text">{{ idea.description }}</div>
+        <div class="card">
+            <div class="card-header">Description</div>
+            <div class="card-body">
+                <div class="card-text">{{ idea.description }}</div>
+            </div>
         </div>
-    </div>
+    {% endif %}
+
+    {% if idea.milestone_set.exists %}
+        <div class="card">
+            <div class="card-header">Milestones</div>
+            <ul class="list-group list-group-flush">
+                {% for milestone in idea.milestone_set.all %}
+                    <li class="list-group-item">{{ milestone.name }}</li>
+{#                    TODO: display description and date if available; later: complete, remove #}
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <p>Idea has no milestones</p>
     {% endif %}
 
 {#    {% if idea.image == "" %}#}
