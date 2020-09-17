@@ -37,7 +37,7 @@ class IdeaCreate(LoginRequiredMixin, CreateView):
     template_name = 'app/idea_form.html'
     model = Idea
     # TODO: allow creating an idea without adding any tags
-    fields = ['title', 'description', 'tags', 'image']
+    fields = ['title', 'description', 'tags']
 
     def form_valid(self, form):
         form.instance.owner = self.request.user
@@ -46,7 +46,7 @@ class IdeaCreate(LoginRequiredMixin, CreateView):
 
 class IdeaUpdate(LoginRequiredMixin, UpdateView):
     model = Idea
-    fields = ['title', 'description', 'tags', 'image']
+    fields = ['title', 'description', 'tags']
 
 
 class IdeaDelete(LoginRequiredMixin, DeleteView):

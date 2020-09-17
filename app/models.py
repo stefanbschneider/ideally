@@ -25,9 +25,11 @@ class Idea(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     # access tags via <idea>.tags.all(); or vice versa: <tag>.idea_set.all()
     tags = models.ManyToManyField(Tag, blank=True)
-    image = models.ImageField(upload_to='images', blank=True)
-    # image = models.ImageField(default='app/icons8-idea-512.png')
-    # TODO: photo, duration
+    # image upload works, but uploaded images are not stored and served by heroku in production --> disabled for now
+    # https://stackoverflow.com/a/41648399/2745116
+    # https://help.heroku.com/K1PPS2WM/why-are-my-file-uploads-missing-deleted
+    # image = models.ImageField(upload_to='images', blank=True)
+    # TODO: duration, milestones, notes
 
     @property
     def user_tags(self):

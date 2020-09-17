@@ -34,12 +34,18 @@ Set the following config vars in Heroku (= env vars):
 
 For serving static files (e.g., favicon) in production, Ideally uses `whitenoise`.
 
+## Limitations
+
+* fix image upload:
+    * uploaded images are not stored persistently on Heroku's free dynos: https://stackoverflow.com/a/41648399/2745116
+    * Image upload disabled by default. Remedy: Setup storage on AWS S3 (not free)
+
 ## Todos
 
 * PWA: https://github.com/silviolleite/django-pwa
     * fixme: doesn't show add to home screen
 * search, sort, filter ideas based on tags and create/update time
-* fix image upload
+
 * add milestones, notes to ideas
 * improve usability by asking others what to improve
 
