@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 class Tag(models.Model):
@@ -57,6 +58,8 @@ class Milestone(models.Model):
     idea = models.ForeignKey(Idea, on_delete=models.CASCADE)
     description = models.CharField(max_length=1000, blank=True)
     date = models.DateField('target date', blank=True)
+    completed = models.BooleanField(default=False)
+    completed_date = models.DateField('when the milestone was completed', blank=True, null=True)
 
     def __str__(self):
         return self.name

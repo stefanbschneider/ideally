@@ -18,6 +18,19 @@ def redirect_landing_page(request):
     else:
         return HttpResponseRedirect(reverse('app:about'))
 
+# check off milestones of an idea
+# def complete_milestone(request):
+#     """Complete milestone and set completion date"""
+#     if request.user.is_authenticated:
+#
+#     form.instance.completed = True
+#     form.instance.completed_date = timezone.now
+#
+# def uncomplete_milestone(self, form):
+#     """Revert completion"""
+#     form.instance.completed = False
+#     form.instance.completed_date = None
+
 
 # Idea views
 class IndexView(LoginRequiredMixin, generic.ListView):
@@ -31,7 +44,6 @@ class IndexView(LoginRequiredMixin, generic.ListView):
 class IdeaDetail(LoginRequiredMixin, generic.DetailView):
     model = Idea
     template_name = 'app/idea_detail.html'
-
 
 class IdeaCreate(LoginRequiredMixin, CreateView):
     template_name = 'app/idea_form.html'

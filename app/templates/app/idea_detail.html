@@ -23,18 +23,39 @@
         </div>
     {% endif %}
 
+{#    TODO: move into extra html file and include #}
     {% if idea.milestone_set.exists %}
-        <div class="card">
-            <div class="card-header">Milestones</div>
-            <ul class="list-group list-group-flush">
-                {% for milestone in idea.milestone_set.all %}
-                    <li class="list-group-item">{{ milestone.name }}</li>
+    <div class="card">
+        <div class="card-header">Milestones</div>
+        <ul class="list-group list-group-flush">
+            {% for milestone in idea.milestone_set.all %}
+                <li class="list-group-item">
+                    {{ milestone.name }}
+{#                FIXME: properly show button in same line. or then just create a proper card button#}
+                    <div class="text-right"><a href="{{ milestone.complete }}"><i class="fas fa-check-circle"></i></a></div>
+                    <div class="text-right">
+                        <span>
+                            {% if milestone.completed %}
+        {#                            FIXME: toggle complete #}
+                            <a href="{{ milestone.complete }}"><span><i class="fas fa-check-circle"></i></span></a>
+                            {% else %}
+                            <a href="{{ milestone.uncomplete }}"><span><i class="far fa-check-circle"></i></span></a>
+                            {% endif %}
+                        </span>
+                    </div>
+
+                    {% if  milestone.description != "" %}
+                    <br>
+                    <div class="small">{{ milestone.description }}</div>
+                    {% endif %}
+
+                </li>
 {#                    TODO: display description and date if available; later: complete, remove #}
-                {% endfor %}
-            </ul>
-        </div>
+            {% endfor %}
+        </ul>
+    </div>
     {% else %}
-        <p>Idea has no milestones</p>
+    <p>Idea has no milestones</p>
     {% endif %}
 
 {#    {% if idea.image == "" %}#}
