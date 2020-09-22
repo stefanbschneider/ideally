@@ -15,7 +15,7 @@
     </p>
 
     {% if idea.description != "" %}
-        <div class="card">
+        <div class="card" style="margin-bottom: 10px;">
             <div class="card-header">Description</div>
             <div class="card-body">
                 <div class="card-text">{{ idea.description }}</div>
@@ -31,31 +31,29 @@
             {% for milestone in idea.milestone_set.all %}
                 <li class="list-group-item">
                     {{ milestone.name }}
-{#                FIXME: properly show button in same line. or then just create a proper card button#}
-                    <div class="text-right"><a href="{{ milestone.complete }}"><i class="fas fa-check-circle"></i></a></div>
-                    <div class="text-right">
-                        <span>
-                            {% if milestone.completed %}
-        {#                            FIXME: toggle complete #}
-                            <a href="{{ milestone.complete }}"><span><i class="fas fa-check-circle"></i></span></a>
-                            {% else %}
-                            <a href="{{ milestone.uncomplete }}"><span><i class="far fa-check-circle"></i></span></a>
-                            {% endif %}
-                        </span>
-                    </div>
-
                     {% if  milestone.description != "" %}
                     <br>
                     <div class="small">{{ milestone.description }}</div>
                     {% endif %}
+
+{#                FIXME: buttons and actions for completing, editing, removing milestones #}
+{#                    <div style="display: inline-block;">#}
+{#                        {% if milestone.completed %}#}
+{#                        <a href="{{ milestone.uncomplete }}" class="btn btn-primary" style="margin: 5px;"><i class="fas fa-check-circle"></i> Completed</a>#}
+{#                            <button type="button" class="btn btn-success" onclick="{{ milestone.uncomplete }}">Completed</button>#}
+{#                        {% else %}#}
+{#                        <button type="button" class="btn btn-primary" onclick="{{ milestone.complete }}">Completeeee</button>#}
+{#                        <a href="{{ milestone.complete }}" class="btn btn-success" style="margin: 5px;"><i class="far fa-check-circle"></i> Completed</a>#}
+{#                        {% endif %}#}
+{#                        <a href="" class="btn btn-secondary" style="margin: 5px;"><i class="fas fa-edit"></i> Edit</a>#}
+{#                        <a href="" class="btn btn-danger" style="margin: 5px;"><i class="fas fa-trash"></i> Delete</a>#}
+{#                    </div>#}
 
                 </li>
 {#                    TODO: display description and date if available; later: complete, remove #}
             {% endfor %}
         </ul>
     </div>
-    {% else %}
-    <p>Idea has no milestones</p>
     {% endif %}
 
 {#    {% if idea.image == "" %}#}

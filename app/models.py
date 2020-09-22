@@ -63,3 +63,9 @@ class Milestone(models.Model):
 
     def __str__(self):
         return self.name
+
+    def complete(self):
+        self.completed = True
+
+    def uncomplete(self):
+        self.completed = False

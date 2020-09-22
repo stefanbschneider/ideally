@@ -2,12 +2,18 @@
 
 # Ideally: Organize & Grow Your Ideas
 
-* ideally.ml
-* https://ideally-app.herokuapp.com/
+Ideally is a progressive web app (PWA) built with Django and Bootstrap that helps you organize your ideas.
+
+**Live demo:** [Heroku](https://ideally-app.herokuapp.com/)
 
 ## Usage
 
+After creating an account, you can set up a list of ideas and tag each idea with tags.
+Tags help filter similar ideas (eg, completed ideas or ideas that are important to you).
+For each idea, you can also add and update a description with your thoughts.
 
+Ideally is experimental and work in progress, so data may be lost and new features are planned.
+For example, the goal is to support milestones, sets of notes, image upload, etc.
 
 ## Deployment
 
@@ -40,9 +46,9 @@ For serving static files (e.g., favicon) in production, Ideally uses `whitenoise
 
 ## Todos
 
+* WIP: add milestones, notes to ideas (see inline todos and fixmes)
 * PWA: https://github.com/silviolleite/django-pwa
     * fixme: doesn't show add to home screen
-* search, sort, filter ideas based on tags and create/update time
-* add milestones, notes to ideas
+* search, sort, filter ideas based on tags and create/update time (with Vue.js?)
 * improve usability by asking others what to improve
 
