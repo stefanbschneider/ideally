@@ -1,29 +1,49 @@
 {% extends 'app/base.html' %}
 
 {% block content %}
-    <h2>Ideally: Organize and Grow Your Ideas</h2>
+<div style="text-align: center; margin-bottom: 2cm;">
+    <i class="card-img-top fas fa-lightbulb fa-10x"></i>
+    <h5>Ideally: Organize & Grow Your Ideas</h5>
+</div>
 
-    <p>Are you creative and full of great ideas? Then Ideally is for you!</p>
-    <ul>
-        <li>Ideally helps you keep track of your ideas</li>
-        <li>Ideally lets you organize and filter ideas by using tags</li>
-        <li>With Ideally you can grow your idea by adding milestones, photos, or notes</li>
-        <li>Ideally is simple and responsive and works on any device, wherever you are</li>
-        <li>Ideally is completely free and open source!</li>
-    </ul>
-    <p>
-        To get started, sign up or log in.
-    </p>
-    <a href="{% url 'django_registration_register' %}" class="btn btn-primary">Sign Up</a>
-    <a href="{% url 'login' %}" class="btn btn-primary">Log In</a>
+{#    Features #}
+<div class="card-group" style="text-align: center;">
+    <div class="card">
+        <i class="card-img-top fas fa-list fa-7x"></i>
+        <div class="card-body">
+            <p class="card-text">
+               Keep track of your ideas and organize them with tags.
+            </p>
+        </div>
+    </div>
+    <div class="card">
+    <i class="card-img-top fas fa-seedling fa-7x"></i>
+        <div class="card-body">
+            <p class="card-text">Grow your ideas over time by adding notes.</p>
+        </div>
+    </div>
+    <div class="card">
+        <i class="card-img-top fas fa-mobile-alt fa-7x"></i>
+        <div class="card-body">
+            <p class="card-text">Take Ideally with you and add ideas wherever you are with whatever device you want.</p>
+        </div>
+    </div>
+    <div class="card">
+        <i class="card-img-top fab fa-github fa-7x"></i>
+        <div class="card-body">
+            <p class="card-text">
+                Free and <a href="https://github.com/stefanbschneider/ideally" target="_blank">open source</a>.
+            </p>
+        </div>
+    </div>
+</div>
 
-    <p>
-        If you just want to see a live demo without registering, you can login and use the public demo account: "demo"/"publicdemo".
-        Keep in mind that any data you enter in the demo account is accessible by other users.
-    </p>
-
-    <p>
-        Ideally is experimental and there is no warranty whatsoever.
-    </p>
+    <div style="text-align: center; margin-top: 1cm;">
+        <p>But: Ideally is still experimental and there is no warranty whatsoever!</p>
+        <p>To get started, sign up or log in.</p>
+        <a href="{% url 'django_registration_register' %}" class="btn btn-primary">Sign Up</a>
+        <a href="{% url 'login' %}" class="btn btn-primary">Log In</a>
+        <p>Public demo account: "demo"/"publicdemo". Any entered data is public!</p>
+    </div>
 
 {% endblock %}
