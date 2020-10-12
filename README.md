@@ -1,14 +1,21 @@
+
+
 ![Django CI](https://github.com/stefanbschneider/ideally/workflows/Django%20CI/badge.svg)
 
 # Ideally: Organize & Grow Your Ideas
 
 Ideally is a progressive web app (PWA) built with Django and Bootstrap that helps you organize your ideas.
 
+* Add new ideas and organize them with tags
+* List all of your ideas or filter by tag
+* Grow ideas by adding more notes
+* Use anywhere: Responsive design and synced online
+* User management: Register and sign in to organize your ideas securely
+
 **Live demo:** [Heroku](https://ideally-app.herokuapp.com/)
 
 <p float="middle">
     <img src="docs/about.jpg" alt="about" width="20%" />
-    <img src="docs/register.jpg" alt="register" width="20%" />
     <img src="docs/ideas.jpg" alt="ideas" width="20%" />
     <img src="docs/tag.jpg" alt="tag" width="20%" />
     <img src="docs/color.jpg" alt="color" width="20%" />
