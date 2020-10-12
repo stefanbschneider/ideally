@@ -6,6 +6,16 @@ Ideally is a progressive web app (PWA) built with Django and Bootstrap that help
 
 **Live demo:** [Heroku](https://ideally-app.herokuapp.com/)
 
+<p float="middle">
+    <img src="docs/about.jpg" alt="about" style="zoom: 20%;" />
+    <img src="docs/register.jpg" alt="register" style="zoom: 20%;" />
+    <img src="docs/ideas.jpg" alt="ideas" style="zoom: 20%;" />
+    <img src="docs/tag.jpg" alt="tag" style="zoom: 20%;" />
+    <img src="docs/color.jpg" alt="color" style="zoom: 20%;" />
+</p>
+
+
+
 ## Usage
 
 After creating an account, you can set up a list of ideas and tag each idea with tags.
