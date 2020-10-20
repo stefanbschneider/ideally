@@ -2,7 +2,11 @@
 
 ![Django CI](https://github.com/stefanbschneider/ideally/workflows/Django%20CI/badge.svg)
 
+**Status:** Prototype finished. Bug fixes or minor new features may still be added.
+
 # Ideally: Organize & Grow Your Ideas
+
+<img src="docs/ideally-demo.gif" alt="ideally demo" width="30%" />
 
 Ideally is a progressive web app (PWA) built with Django and Bootstrap that helps you organize your ideas.
 
@@ -20,8 +24,6 @@ Ideally is a progressive web app (PWA) built with Django and Bootstrap that help
     <img src="docs/tag.jpg" alt="tag" width="20%" />
     <img src="docs/color.jpg" alt="color" width="20%" />
 </p>
-
-
 
 ## Usage
 
