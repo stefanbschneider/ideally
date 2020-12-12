@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'app.apps.AppConfig',
     'pwa',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -192,3 +193,6 @@ PWA_APP_SPLASH_SCREEN = [
 ]
 # PWA_APP_DIR = 'ltr'
 PWA_APP_LANG = 'en-US'
+
+# for django-crispy-forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
