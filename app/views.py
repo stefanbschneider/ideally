@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect, Http404, JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse, reverse_lazy
@@ -8,6 +9,7 @@ from django.utils import timezone
 from django.template import loader
 from django.forms import TextInput
 
+from .forms import IdeaForm
 from .models import Idea, Tag
 
 
@@ -45,6 +47,7 @@ class IdeaDetail(LoginRequiredMixin, generic.DetailView):
     model = Idea
     template_name = 'app/idea_detail.html'
 
+
 class IdeaCreate(LoginRequiredMixin, CreateView):
     template_name = 'app/idea_form.html'
     model = Idea
@@ -55,6 +58,31 @@ class IdeaCreate(LoginRequiredMixin, CreateView):
         form.instance.owner = self.request.user
         return super().form_valid(form)
 
+
+@login_required
+def add_idea(request):
+    # if POST, process form data
+    if request.method == 'POST':
+        form = IdeaForm(request.POST)
+
+        if form.is_valid():
+            title = form.cleaned_data['title']
+            description = form.cleaned_data['description']
+            owner = request.user
+            idea = Idea.objects.create(title=title, description=description, owner=owner)
+            tag_names = form.cleaned_data['tags']
+            tags = Tag.objects.filter(name__in=tag_names)
+            idea.tags.set(tags)
+            return HttpResponseRedirect(reverse('app:index'))
+
+    # else, create a blank form
+    else:
+        form = IdeaForm(initial={'title': '', 'description': ''})
+
+    context = {
+        'form': form
+    }
+    return render(request, 'app/idea_form.html', context)
 
 class IdeaUpdate(LoginRequiredMixin, UpdateView):
     model = Idea
