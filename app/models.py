@@ -2,11 +2,12 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django import forms
 
 
 class Tag(models.Model):
     name = models.CharField(max_length=100)
-    description = models.CharField(max_length=500, blank=True)
+    description = models.TextField(max_length=500, blank=True)
     color = models.CharField(max_length=7, default='#FF0000')
     owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
 
@@ -19,7 +20,7 @@ class Tag(models.Model):
 
 class Idea(models.Model):
     title = models.CharField(max_length=200)
-    description = models.CharField(max_length=5000, blank=True)
+    description = models.TextField(max_length=5000, blank=True)
     creation_date = models.DateTimeField('date created', auto_now=True)
     update_date = models.DateTimeField('date updated', auto_now=True)
     # cascade: delete idea when owner is deleted
