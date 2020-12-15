@@ -1,12 +1,12 @@
 {% extends 'app/base.html' %}
 
-{#FIXME: breaks with crispy!#}
-{#{% load crispy_forms_tags %}#}
+{% load crispy_forms_tags %}
 
 {% block content %}
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
+{#        FIXME: tags are not saved when first creating a new idea #}
+        {{ form | crispy }}
 
 
 
