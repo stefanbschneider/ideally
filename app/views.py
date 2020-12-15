@@ -70,8 +70,7 @@ def add_idea(request):
             description = form.cleaned_data['description']
             owner = request.user
             idea = Idea.objects.create(title=title, description=description, owner=owner)
-            tag_names = form.cleaned_data['tags']
-            tags = Tag.objects.filter(name__in=tag_names)
+            tags = form.cleaned_data['tags']
             idea.tags.set(tags)
             return HttpResponseRedirect(reverse('app:index'))
 

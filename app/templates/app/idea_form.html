@@ -5,7 +5,6 @@
 {% block content %}
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-{#        FIXME: tags are not saved when first creating a new idea #}
         {{ form | crispy }}
 
 
