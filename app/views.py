@@ -85,7 +85,7 @@ def add_note(request, pk_idea):
             title = form.cleaned_data['title']
             note_text = form.cleaned_data['note']
             note = Note.objects.create(title=title, note=note_text, idea=idea)
-            return HttpResponseRedirect(reverse('app:index'))
+            return HttpResponseRedirect(reverse('app:detail', kwargs={'pk': pk_idea}))
 
     # else, create a blank form
     else:

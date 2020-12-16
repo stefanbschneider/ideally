@@ -62,6 +62,19 @@
 {#        <img src="{{ idea.image.url }}" alt="Uploaded image for idea with URL {{ idea.image.url }}">#}
 {#    {% endif %}#}
 
+{#    notes #}
+    <div class="card-columns">
+        {% for note in idea.note_set.all %}
+{#            TODO: why are cards so wide and not next to each other? #}
+            <div class="card">
+                <div class="card-header">{{ note.title }}</div>
+                <div class="card-body">
+                    <div class="card-text">{{ note.note }}</div>
+                </div>
+{#           TODO: add buttons for editing and deleting     #}
+            </div>
+        {% endfor %}
+    </div>
 
     <a class="btn btn-primary" href="{% url 'app:add-note' idea.id %}">Add Note <i class="far fa-sticky-note"></i></a>
     <a class="btn btn-secondary" href="{% url 'app:edit' idea.id %}">Edit Idea <i class="fas fa-edit"></i></a>
