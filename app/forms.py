@@ -1,9 +1,15 @@
 from django.forms import ModelForm
 
-from .models import Idea
+from . import models
 
 
 class IdeaForm(ModelForm):
     class Meta:
-        model = Idea
+        model = models.Idea
         fields = ['title', 'description', 'tags']
+
+
+class NoteForm(ModelForm):
+    class Meta:
+        model = models.Note
+        fields = ['title', 'note']

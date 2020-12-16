@@ -63,6 +63,7 @@
 {#    {% endif %}#}
 
 
-    <a class="btn btn-secondary" href="{% url 'app:edit' idea.id %}">Edit <i class="fas fa-edit"></i></a>
+    <a class="btn btn-primary" href="{% url 'app:add-note' idea.id %}">Add Note <i class="far fa-sticky-note"></i></a>
+    <a class="btn btn-secondary" href="{% url 'app:edit' idea.id %}">Edit Idea <i class="fas fa-edit"></i></a>
     <a class="btn btn-danger" href="{% url 'app:delete' idea.id %}">Delete <i class="fas fa-trash"></i></a>
 {% endblock %}

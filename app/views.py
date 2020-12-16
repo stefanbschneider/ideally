@@ -9,8 +9,8 @@ from django.utils import timezone
 from django.template import loader
 from django.forms import TextInput
 
-from .forms import IdeaForm
-from .models import Idea, Tag
+from .forms import IdeaForm, NoteForm
+from .models import Idea, Tag, Note
 
 
 # landing page redirects to idea index if logged in and to about otherwise
@@ -67,6 +67,29 @@ def add_idea(request):
     # else, create a blank form
     else:
         form = IdeaForm(initial={'title': '', 'description': ''})
+
+    context = {
+        'form': form
+    }
+    return render(request, 'app/idea_form.html', context)
+
+
+@login_required
+def add_note(request, pk_idea):
+    idea = get_object_or_404(Idea, pk=pk_idea, owner=request.user)
+    # if POST, process form data
+    if request.method == 'POST':
+        form = NoteForm(request.POST)
+
+        if form.is_valid():
+            title = form.cleaned_data['title']
+            note_text = form.cleaned_data['note']
+            note = Note.objects.create(title=title, note=note_text, idea=idea)
+            return HttpResponseRedirect(reverse('app:index'))
+
+    # else, create a blank form
+    else:
+        form = NoteForm(initial={'title': '', 'note': ''})
 
     context = {
         'form': form

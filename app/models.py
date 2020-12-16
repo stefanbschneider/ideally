@@ -70,3 +70,13 @@ class Milestone(models.Model):
 
     def uncomplete(self):
         self.completed = False
+
+
+class Note(models.Model):
+    """An arbitrary note belonging to an idea with a title and the note itself."""
+    title = models.CharField(max_length=100)
+    note = models.TextField(max_length=5000)
+    idea = models.ForeignKey(Idea, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
