@@ -17,7 +17,6 @@ urlpatterns = [
     path('idea/', views.IndexView.as_view(), name='index'),
     path('idea/<int:pk>/', views.IdeaDetail.as_view(), name='detail'),
     path('idea/add/', views.add_idea, name='add'),
-    # path('idea/add/', views.IdeaCreate.as_view(), name='add'),
     path('idea/<int:pk>/edit/', views.IdeaUpdate.as_view(), name='edit'),
     path('idea/<int:pk>/delete/', views.IdeaDelete.as_view(), name='delete'),
 

@@ -43,20 +43,10 @@ class IndexView(LoginRequiredMixin, generic.ListView):
         """Return all ideas of the user ordered by date"""
         return Idea.objects.filter(owner=self.request.user).order_by('-update_date')
 
+
 class IdeaDetail(LoginRequiredMixin, generic.DetailView):
     model = Idea
     template_name = 'app/idea_detail.html'
-
-
-class IdeaCreate(LoginRequiredMixin, CreateView):
-    template_name = 'app/idea_form.html'
-    model = Idea
-    # TODO: allow creating an idea without adding any tags
-    fields = ['title', 'description', 'tags']
-
-    def form_valid(self, form):
-        form.instance.owner = self.request.user
-        return super().form_valid(form)
 
 
 @login_required
@@ -82,6 +72,7 @@ def add_idea(request):
         'form': form
     }
     return render(request, 'app/idea_form.html', context)
+
 
 class IdeaUpdate(LoginRequiredMixin, UpdateView):
     model = Idea

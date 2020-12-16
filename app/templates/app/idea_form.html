@@ -6,36 +6,6 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form | crispy }}
-
-
-
-{#        <div class="form-group">#}
-{#            {{ form.title.label_tag }}#}
-{#            <input class="form-control" type="text" id="{{ form.title.id_for_label }}" name="{{ form.title.name }}" value="{{ form.title.value }}">#}
-{#            {{ form.title.errors }}#}
-{#        </div>#}
-{#        <div class="form-group">#}
-{#            {{ form.description.label_tag }}#}
-{#            <textarea class="form-control" id="{{ form.description.id_for_label }}" name="{{ form.description.name }}">#}
-{#                {{ form.description.value }}#}
-{#            </textarea>#}
-{#            {{ form.description.errors }}#}
-{#        </div>#}
-{#        <div class="form-group">#}
-{#            {{ form.tags.label_tag }}#}
-{#            <select multiple class="form-control" id="{{ form.tags.id_for_label }}" name="{{ form.tags.name }}">#}
-{#                {% for tag in idea.user_tags.all %}#}
-{#                    <option value="{{ tag.id }}" {% if tag in idea.tags.all %} selected {% endif %}>{{ tag }}</option>#}
-{#                {% endfor %}#}
-{#            </select>#}
-{#        </div>#}
-
-{#        <div class="form-group">#}
-{#            {{ form.image.label_tag }}#}
-{#            <input class="form-control" type="file" id="{{ form.image.id_for_label }}" name="{{ form.image.name }}" value="{{ form.image.value }}">#}
-{#            {{ form.image.errors }}#}
-{#        </div>#}
-
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
 {% endblock %}
