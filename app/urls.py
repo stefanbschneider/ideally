@@ -20,7 +20,8 @@ urlpatterns = [
     path('idea/<int:pk>/edit/', views.IdeaUpdate.as_view(), name='edit'),
     path('idea/<int:pk>/delete/', views.IdeaDelete.as_view(), name='delete'),
     # note views
-    path('idea/<int:pk_idea>/add_note/', views.add_note, name='add-note'),
+    path('idea/<int:pk_idea>/note/add/', views.add_note, name='add-note'),
+    path('idea/<int:pk_idea>/note/<int:pk_note>', views.edit_note, name='edit-note'),
 
     # tag views
     path('tag/', views.TagIndex.as_view(), name='tag-index'),

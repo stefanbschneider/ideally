@@ -97,6 +97,31 @@ def add_note(request, pk_idea):
     return render(request, 'app/idea_form.html', context)
 
 
+@login_required
+def edit_note(request, pk_idea, pk_note):
+    idea = get_object_or_404(Idea, pk=pk_idea, owner=request.user)
+    note = get_object_or_404(Note, pk=pk_note, idea=idea)
+    # assert note.idea.owner == request.user, f"Note {note.title} does not belong to user {request.user}"
+    # if POST, process form data
+    if request.method == 'POST':
+        form = NoteForm(request.POST)
+
+        if form.is_valid():
+            note.title = form.cleaned_data['title']
+            note.note = form.cleaned_data['note']
+            note.save()
+            return HttpResponseRedirect(reverse('app:detail', kwargs={'pk': pk_idea}))
+
+    # else, create a blank form
+    else:
+        form = NoteForm(initial={'title': note.title, 'note': note.note})
+
+    context = {
+        'form': form
+    }
+    return render(request, 'app/idea_form.html', context)
+
+
 class IdeaUpdate(LoginRequiredMixin, UpdateView):
     model = Idea
     fields = ['title', 'description', 'tags']

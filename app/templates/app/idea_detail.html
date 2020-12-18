@@ -65,18 +65,18 @@
 {#    notes #}
     <div class="card-columns">
         {% for note in idea.note_set.all %}
-{#            TODO: why are cards so wide and not next to each other? #}
             <div class="card">
                 <div class="card-header">{{ note.title }}</div>
                 <div class="card-body">
                     <div class="card-text">{{ note.note }}</div>
+                    <a href="{% url 'app:edit-note' idea.pk note.pk %}" class="btn btn-light" style="margin-top: 5px;"><i class="fas fa-edit"></i> Edit</a>
                 </div>
 {#           TODO: add buttons for editing and deleting     #}
             </div>
         {% endfor %}
     </div>
 
-    <a class="btn btn-primary" href="{% url 'app:add-note' idea.id %}">Add Note <i class="far fa-sticky-note"></i></a>
-    <a class="btn btn-secondary" href="{% url 'app:edit' idea.id %}">Edit Idea <i class="fas fa-edit"></i></a>
-    <a class="btn btn-danger" href="{% url 'app:delete' idea.id %}">Delete <i class="fas fa-trash"></i></a>
+    <a class="btn btn-primary" href="{% url 'app:add-note' idea.id %}"><i class="far fa-sticky-note"></i> Add Note</a>
+    <a class="btn btn-secondary" href="{% url 'app:edit' idea.id %}"><i class="fas fa-edit"></i> Edit Idea</a>
+    <a class="btn btn-danger" href="{% url 'app:delete' idea.id %}"><i class="fas fa-trash"></i> Delete</a>
 {% endblock %}
