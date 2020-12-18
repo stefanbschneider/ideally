@@ -70,38 +70,19 @@
                 <div class="card-body">
                     <div class="card-text">{{ note.note }}</div>
                     <a href="{% url 'app:edit-note' idea.pk note.pk %}" class="btn btn-light" style="margin-top: 5px;"><i class="fas fa-edit"></i> Edit Note</a>
-{#                    <a href="{% url 'app:delete-note' idea.pk note.pk %}" class="btn btn-light" style="margin-top: 5px;"><i class="fas fa-trash"></i> Delete Note</a>#}
-                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#deleteModal"><i class="fas fa-trash"></i> Delete Note</button>
+                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#deleteNoteModal"><i class="fas fa-trash"></i> Delete Note</button>
                 </div>
-{#           TODO: add buttons for editing and deleting     #}
             </div>
 
-            {#    modal for confirming delete #}
-            <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Delete {{ note.title }}?</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    Do you really want to delete this note?
-                  </div>
-                  <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        {#            <button type="button" class="btn btn-danger">Delete note</button>#}
-                      <a href="{% url 'app:delete-note' idea.pk note.pk %}" class="btn btn-danger"><i class="fas fa-trash"></i> Delete Note</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {% url 'app:delete-note' idea.pk note.pk as delete_note_url %}
+            {% include 'includes/confirm_delete_modal.html' with modal_id="deleteNoteModal" item_title=note.title delete_url=delete_note_url %}
         {% endfor %}
     </div>
 
 
     <a class="btn btn-primary" href="{% url 'app:add-note' idea.id %}"><i class="far fa-sticky-note"></i> Add Note</a>
     <a class="btn btn-secondary" href="{% url 'app:edit' idea.id %}"><i class="fas fa-edit"></i> Edit Idea</a>
-    <a class="btn btn-danger" href="{% url 'app:delete' idea.id %}"><i class="fas fa-trash"></i> Delete Idea</a>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteIdeaModal"><i class="fas fa-trash"></i> Delete Idea</button>
+    {% url 'app:delete' idea.pk as delete_idea_url %}
+    {% include 'includes/confirm_delete_modal.html' with modal_id="deleteIdeaModal" item_title=idea.title delete_url=delete_idea_url %}
 {% endblock %}
