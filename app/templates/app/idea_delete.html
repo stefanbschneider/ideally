@@ -1,9 +1,0 @@
-{% extends 'app/base.html' %}
-
-{% block content %}
-<form method="post">
-    {% csrf_token %}
-    <p>Are you sure you want to delete idea "{{ object }}"?</p>
-    <input type="submit" class="btn btn-danger" value="Delete {{ object }}">
-</form>
-{% endblock %}

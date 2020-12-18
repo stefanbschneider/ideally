@@ -30,9 +30,13 @@
                     <a href="{% url 'app:edit' idea.id %}" style="margin: 5px;" data-toggle="tooltip" data-placement="top" title="Edit">
                         <i class="fas fa-edit"></i>
                     </a>
-                    <a href="{% url 'app:delete' idea.id %}" style="margin: 5px;" data-toggle="tooltip" data-placement="top" title="Delete">
-                        <i class="fas fa-trash"></i>
-                    </a>
+
+                    <dev data-toggle="tooltip" data-placement="top" title="Delete">
+                        <a href="" style="margin: 5px;" data-toggle="modal" data-target="#{{ idea.title }}"><i class="fas fa-trash"></i></a>
+                        {% url 'app:delete' idea.pk as delete_idea_url %}
+                        {% include 'includes/confirm_delete_modal.html' with modal_id=idea.title item_title=idea.title delete_url=delete_idea_url %}
+                    </dev>
+
                 </td>
             </tr>
             {% endfor %}

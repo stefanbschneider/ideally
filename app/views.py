@@ -139,10 +139,11 @@ class IdeaUpdate(LoginRequiredMixin, UpdateView):
     fields = ['title', 'description', 'tags']
 
 
-class IdeaDelete(LoginRequiredMixin, DeleteView):
-    template_name = 'app/idea_delete.html'
-    model = Idea
-    success_url = reverse_lazy('app:index')
+@login_required
+def delete_idea(request, pk):
+    idea = get_object_or_404(Idea, pk=pk, owner=request.user)
+    idea.delete()
+    return HttpResponseRedirect(reverse('app:index'))
 
 
 # Tag views
