@@ -1,3 +1,5 @@
+import logging
+
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect, Http404, JsonResponse
 from django.shortcuts import get_object_or_404, render
@@ -11,6 +13,9 @@ from django.forms import TextInput
 
 from .forms import IdeaForm, NoteForm
 from .models import Idea, Tag, Note
+
+
+logger = logging.getLogger(__name__)
 
 
 # landing page redirects to idea index if logged in and to about otherwise
@@ -101,7 +106,6 @@ def add_note(request, pk_idea):
 def edit_note(request, pk_idea, pk_note):
     idea = get_object_or_404(Idea, pk=pk_idea, owner=request.user)
     note = get_object_or_404(Note, pk=pk_note, idea=idea)
-    # assert note.idea.owner == request.user, f"Note {note.title} does not belong to user {request.user}"
     # if POST, process form data
     if request.method == 'POST':
         form = NoteForm(request.POST)
@@ -120,6 +124,14 @@ def edit_note(request, pk_idea, pk_note):
         'form': form
     }
     return render(request, 'app/idea_form.html', context)
+
+
+@login_required
+def delete_note(request, pk_idea, pk_note):
+    idea = get_object_or_404(Idea, pk=pk_idea, owner=request.user)
+    note = get_object_or_404(Note, pk=pk_note, idea=idea)
+    note.delete()
+    return HttpResponseRedirect(reverse('app:detail', kwargs={'pk': pk_idea}))
 
 
 class IdeaUpdate(LoginRequiredMixin, UpdateView):
