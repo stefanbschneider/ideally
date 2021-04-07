@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 requirements = [
     'django==3.1.6',
     'Pillow>=7.2.0',
-    'django-registration==3.1',
+    'django-registration==3.1.2',
     'gunicorn>=20.0.4',
     'dj-database-url>=0.5.0',
     'psycopg2-binary>=2.8.5',
