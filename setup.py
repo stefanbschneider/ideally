@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 
 requirements = [
-    'django==3.1.13',
+    'django==3.2.24',
     'Pillow>=7.2.0',
     'django-registration==3.1.2',
     'gunicorn>=20.0.4',
